@@ -1,12 +1,10 @@
 
-/* 
-Ritorna il valore attuale e una funzione toggle() per cambiarlo.
-Quando toggle() viene chiamato, il valore passa da true → false e viceversa.
-Esempio di utilizzo:*/
-
-import useSwitch from "./assets/useSwitch";
+//-------------------------------------------------------------------------- Snack 1
+/*
+import useSwitch from "./useSwitch";
 
 export default function App() {
+  
   const [isOn, toggle] = useSwitch();
   console.log(isOn)
   return (
@@ -15,7 +13,26 @@ export default function App() {
       <button onClick={toggle}>Cambia Stato</button>
     </div>
   );
+  }
+  */
+//-------------------------------------------------------------------------- Snack 2
+import useDate from "./useDate";
+
+export default function App() {
+  const currentDate = useDate();
+
+  return (
+    <div>
+      <h1>Data e ora attuali:</h1>
+      <p>{currentDate.toLocaleString()}</p>
+    </div>
+  );
 }
+
+
+
+
+
 
 
 
