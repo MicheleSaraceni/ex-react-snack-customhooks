@@ -1,7 +1,7 @@
 // useCustomPointer.js
 import { useState, useEffect } from "react";
 
-export default function useCustomPointer() {
+export default function useCustomPointer(newCursor) {
 
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -10,13 +10,20 @@ export default function useCustomPointer() {
         const handleMove = (e) => setPosition({ x: e.clientX, y: e.clientY });
         window.addEventListener("mousemove", handleMove);
 
-        return () => {
-            window.removeEventListener("mousemove", handleMove)
-            document.body.style.cursor = "auto";
-        };
+        return () => window.removeEventListener("mousemove", handleMove)
     }, []);
 
-    return position;
+    return <div
+        style={{
+            position: "fixed",
+            left: position.x,
+            top: position.y,
+            cursor: "none",
+            transform: "translate(-50%, -50%)"
+        }}
+    >
+        {newCursor}
+    </div>;
 }
 
 

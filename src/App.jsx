@@ -1,7 +1,7 @@
 
 //-------------------------------------------------------------------------- Snack 1
-/*
-import useSwitch from "./useSwitch";
+
+/* import useSwitch from "./useSwitch";
 
 export default function App() {
 
@@ -13,8 +13,8 @@ export default function App() {
       <button onClick={toggle}>Cambia Stato</button>
     </div>
   );
-  }
-  */
+} */
+
 //-------------------------------------------------------------------------- Snack 2
 /* import useDate from "./useDate";
 
@@ -32,23 +32,12 @@ export default function App() {
 import useCustomPointer from "./useCustomPointer";
 
 export default function App() {
-  const { x, y } = useCustomPointer();
+  const customPointer = useCustomPointer("🔥");
 
   return (
     <div>
-      <h1>Cursore personalizzato con elemento HTML!</h1>
-      <div
-        style={{
-          position: "fixed",
-          left: x,
-          top: y,
-          pointerEvents: "none",
-          fontSize: "24px",
-          cursor: "none" // Nasconde il cursore nativo
-        }}
-      >
-        🔥
-      </div>
+      <h1>Sposta il mouse per vedere il cursore personalizzato!</h1>
+      {customPointer}
     </div>
   );
 }
